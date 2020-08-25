@@ -1,0 +1,30 @@
+package main
+import "fmt"
+func main(){
+	var a,b,c,d,e string
+	fmt.Println("What do you get when you cross a snowman with a vampire?")
+	fmt.Println("当你把一个雪人和一个吸血鬼放在一起的时候，你会得到什么?")
+	fmt.Scan(&a)
+	fmt.Println("Frostbite!")
+	fmt.Println("冻疮!")
+	fmt.Println("")
+	fmt.Println("What do dentists call a astronaut's cavity?")
+	fmt.Println("牙医把宇航员的蛀牙叫什么?")
+	fmt.Scan(&b)
+	fmt.Println("A black hole!")
+	fmt.Println("一个黑洞！")
+	fmt.Println("")
+	fmt.Println("Knock knock.")
+	fmt.Println("有敲门声。")
+	fmt.Scan(&c)
+	fmt.Println("Who's there?")
+	fmt.Println("是谁？")
+	fmt.Scan(&d)
+	fmt.Println("Interrupting cow.")
+	fmt.Println("牛的叫声。")
+	fmt.Println("Interrupting cow wh-MOO!")
+	fmt.Println("牛的叫声moo")
+	fmt.Println("alt+f4 to quit.")
+	fmt.Println("alt+f4退出。")
+	fmt.Scan(&e)
+}
