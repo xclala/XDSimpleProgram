@@ -1,10 +1,11 @@
-#pyinstaller -F 颜色选择器.py
+#pyinstaller -F -w 颜色选择器.py
 from tkinter import colorchooser
+from tkinter.messagebox import showinfo
 from tkinter import *
 
 
 def cc():
-    print(colorchooser.askcolor(title="颜色选择"))
+    showinfo(title="颜色",message=colorchooser.askcolor(title="颜色选择"))
 
 
 root = Tk()
