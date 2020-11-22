@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 try:
 	from tkinter.scrolledtext import ScrolledText
 	def main():
@@ -7,6 +8,9 @@ try:
 		with open(filename.get(),'w',encoding='utf-8') as file:
 			file.write("")
 		remove(filename.get())
+	def on_closing():
+		if messagebox.askokcancel("退出", "你确定要退出吗？"):
+			top.destroy()
 	top=Tk()
 	top.title("文件粉碎机")
 	top.geometry('1500x30')
@@ -15,6 +19,7 @@ try:
 	filename=Entry()
 	filename.pack(side=LEFT,expand=True,fill=X)
 	Button(text='粉碎',command=main).pack(side=RIGHT)
+	top.protocol("WM_DELETE_WINDOW", on_closing)
 	mainloop()
 except:
 	pass
