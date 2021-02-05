@@ -1,5 +1,6 @@
 try:
     from tkinter import *
+    from tkinter import messagebox
 
     class App:
         def __init__(self, master):
@@ -19,10 +20,12 @@ try:
             names = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+',
                      '-', '*', '/', '.', '=')
             for i in range(len(names)):
-                b = Button(p, text=names[i], font=('Verdana', 20), width=6,fg='white',bg='black')
+                b = Button(p, text=names[i], font=(
+                    'Verdana', 20), width=6, fg='white', bg='#010101')
                 b.grid(row=i // 4, column=i % 4)
                 b.bind('<Button-1>', self.click)
-                if b['text'] == '=': b.bind('<Double-1>', self.clean)
+                if b['text'] == '=':
+                    b.bind('<Double-1>', self.clean)
 
         def click(self, event):
             if (event.widget['text'] in ('0', '1', '2', '3', '4', '5', '6',
@@ -44,10 +47,15 @@ try:
             self.expr = None
             self.show['text'] = ''
 
+    def on_closing():
+        if messagebox.askokcancel("退出", "你确定要退出吗？"):
+            root.destroy()
     root = Tk()
     root.title("计算器")
+    root.attributes('-transparentcolor', '#010101')
     Label(text='双击“=”清屏').pack(side=TOP)
+    root.protocol("WM_DELETE_WINDOW", on_closing)
     App(root)
-    root.mainloop()
+    root.mainloop() 
 except:
     pass
